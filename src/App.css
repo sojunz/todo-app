@@ -1,11 +1,17 @@
-/* 기본 글꼴과 배경 */
+/* 기본 body 스타일 */
+/* 전체 페이지 중앙 정렬 */
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans",
     "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
   color: #111;
-  background: #fafafa;
 }
+
 
 /* 전체 앱 레이아웃 */
 .app-shell {
