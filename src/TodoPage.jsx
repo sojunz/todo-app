@@ -40,17 +40,18 @@ export default function TodoPage() {
 
   return (
     <section className="todo-wrap">
-      <h1 className="todo-title">Todo</h1>
+      <h1 className="todo-title">My Day</h1>
+
       <form className="todo-form" onSubmit={addItem}>
         <input
           className="todo-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="할 일 추가…"
+          placeholder="Enter a new task"
         />
-        <button className="todo-add" type="submit">추가</button>
+        <button className="todo-add" type="submit">Go</button>
       </form>
-
+      <img src="/Home.JPG" alt="Home Image" width="500" />
       <ul className="todo-list">
         {items.map((it) => (
           <li key={it.id} className="todo-item">
@@ -61,8 +62,8 @@ export default function TodoPage() {
                   value={editingText}
                   onChange={(e) => setEditingText(e.target.value)}
                 />
-                <button className="btn save" onClick={() => saveEdit(it.id)}>저장</button>
-                <button className="btn cancel" onClick={cancelEdit}>취소</button>
+                <button className="btn save" onClick={() => saveEdit(it.id)}>Save</button>
+                <button className="btn cancel" onClick={cancelEdit}>Cancle</button>
               </div>
             ) : (
               <div className="todo-row">
@@ -75,8 +76,8 @@ export default function TodoPage() {
                   <span className={it.done ? "done" : ""}>{it.text}</span>
                 </label>
                 <div className="todo-actions">
-                  <button className="btn edit" onClick={() => startEdit(it.id, it.text)}>수정</button>
-                  <button className="btn delete" onClick={() => deleteItem(it.id)}>삭제</button>
+                  <button className="btn edit" onClick={() => startEdit(it.id, it.text)}>Edit</button>
+                  <button className="btn delete" onClick={() => deleteItem(it.id)}>Delete</button>
                 </div>
               </div>
             )}

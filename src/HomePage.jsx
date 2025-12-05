@@ -1,9 +1,10 @@
 export default function HomePage() {
-    return (
-      <section className="page home">
-        <h1>Welcome</h1>
-        <p>Your space to plan simply. Use the navigation above to get to Todo.</p>
-      </section>
-    );
-  }
+  return (
+    <section className="home-wrap">
+      <h1>My Day</h1>
   
+      <img src="/Door.jpg" alt="Door Image" width="500" />
+
+    </section>
+  );
+}
