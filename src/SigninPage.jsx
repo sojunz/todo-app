@@ -1,19 +1,29 @@
 import { useState } from "react";
 
-export default function LoginPage() {
+export default function SigninPage() {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password });
+    console.log("Signin attempt:", { username, email, password });
     // 나중에 Node.js 서버 연결 자리
   };
 
   return (
     <section className="auth-page">
-      <h2>Login</h2>
+      <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
+        <label>
+          Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </label>
         <label>
           Email:
           <input
@@ -32,7 +42,7 @@ export default function LoginPage() {
             required
           />
         </label>
-        <button type="submit">Login</button>
+        <button type="submit">Sign Up</button>
       </form>
     </section>
   );

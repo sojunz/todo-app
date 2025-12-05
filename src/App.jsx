@@ -1,36 +1,32 @@
-import { Link, Routes, Route, NavLink } from "react-router-dom";
+import "./App.css"; // 꼭 있어야 함
+import { Routes, Route, Link } from "react-router-dom";
 import HomePage from "./HomePage.jsx";
 import TodoPage from "./TodoPage.jsx";
 import AboutPage from "./AboutPage.jsx";
 import ContactPage from "./ContactPage.jsx";
-import "./App.css";
+import LoginPage from "./LoginPage.jsx";
+import SigninPage from "./SigninPage.jsx";
 
 export default function App() {
   return (
-    <div className="app-shell">
-      <header className="header">
-        <nav className="nav">
-          <NavLink to="/" end className="nav-link">Home</NavLink>
-          <NavLink to="/todo" className="nav-link">Todo</NavLink>
-          <NavLink to="/about" className="nav-link">About</NavLink>
-          <NavLink to="/contact" className="nav-link">Contact</NavLink>
-          <a className="nav-link right" href="https://github.com/sojunz/todo-app" target="_blank" rel="noreferrer">GitHub</a>
-        </nav>
-      </header>
+    <>
+      <nav className="nav-bar">
+        <Link to="/">Home</Link>
+        <Link to="/todo">Todo</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/signin">Signin</Link>
+      </nav>
 
-      <main className="main">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/todo" element={<TodoPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </main>
-
-      <footer className="footer">
-        <small>© {new Date().getFullYear()} SoHyung — Simple, real, and yours.</small>
-      </footer>
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/todo" element={<TodoPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signin" element={<SigninPage />} />
+      </Routes>
+    </>
   );
 }
-

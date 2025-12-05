@@ -3,7 +3,7 @@ export default function HomePage() {
     <section className="home-wrap">
       <h1>My Day</h1>
   
-      <img src="/Door.jpg" alt="Door Image" width="500" />
+      <img src="/Door.jpg" alt="Door Image" width="600" />
 
     </section>
   );
