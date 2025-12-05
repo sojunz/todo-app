@@ -1,0 +1,45 @@
+.todo-container {
+  max-width: 480px;
+  margin: 40px auto;
+  font-family: system-ui;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 또는 center */
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 40px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
