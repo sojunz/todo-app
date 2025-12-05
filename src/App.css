@@ -1,45 +1,79 @@
-.todo-container {
-  max-width: 480px;
-  margin: 40px auto;
-  font-family: system-ui;
-}
-
-form {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-input[type="text"] {
-  flex: 1;
-  padding: 8px;
-}
-
-button {
-  padding: 8px 12px;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
+/* 기본 글꼴과 배경 */
 body {
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* 또는 center */
-  min-height: 100vh;
-  background-color: #f9f9f9;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans",
+    "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #111;
+  background: #fafafa;
 }
 
-.todo-container {
-  width: 100%;
-  max-width: 480px;
-  margin-top: 40px;
-  padding: 0 16px;
-  box-sizing: border-box;
+/* 전체 앱 레이아웃 */
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* 네비게이션 헤더 */
+.header {
+  position: sticky; /* 스크롤해도 맨 위에 고정 */
+  top: 0;
+  z-index: 100;
+  background: #ffffffcc; /* 반투명 흰색 */
+  backdrop-filter: blur(8px); /* 유리창 같은 효과 */
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* 네비게이션 메뉴 */
+.nav {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  gap: 16px;
+  padding: 14px 20px;
+  align-items: center;
+}
+
+/* 네비게이션 링크 */
+.nav-link {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.nav-link:hover {
+  background: #f3f4f6;
+}
+.nav-link.right {
+  margin-left: auto; /* GitHub 링크를 오른쪽 끝으로 */
+  color: #374151;
+}
+
+/* 메인 컨텐츠 */
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* 페이지 공통 스타일 */
+.page h1 {
+  font-size: 28px;
+  margin: 12px 0 8px;
+}
+.page p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* 푸터 */
+.footer {
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  padding: 18px 20px;
+  text-align: center;
+  background: #fff;
 }
