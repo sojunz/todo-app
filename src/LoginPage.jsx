@@ -12,7 +12,7 @@ export default function LoginPage() {
 
   return (
     <section className="auth-page">
-      <h2>Login</h2>
+      <h2>Signin</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Email:

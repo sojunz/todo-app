@@ -1,12 +1,12 @@
 /* Navigation Bar */
 .nav-bar {
   display: flex;
-  justify-content: center;
-  gap: 24px;
+  justify-content: right;
+  gap: 10px;
   padding: 16px 0;
-  background: #fffaf0; /* 따뜻한 아이보리 톤 */
+  background: none;
   border-bottom: 1px solid #e5e7eb;
-  font-family: "Nunito", sans-serif;
+  font-family: "coursive", sans-serif;
 }
 
 .nav-bar a {
@@ -85,7 +85,46 @@
   flex-direction: column; /* 제목과 이미지를 세로로 쌓기 */
   align-items: center;    /* 가로 중앙 정렬 */
   justify-content: center;/* 세로 중앙 정렬 (필요시) */
+  font-family: "playfair display", serif;
   text-align: center;     /* 텍스트 중앙 정렬 */
   margin-top: 40px;
   gap: 20px;              /* 제목과 이미지 사이 간격 */
+}
+.intro-block {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: none;
+  border-radius: 12px;
+  font-family: "playfair display", serif;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.intro-block p {
+  margin-bottom: 16px;
+  color: #4b2e2e;
+  font-weight: 500;
+}
+
+.about-page {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 28px;
+  background: none;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  font-family: "playfair display", serif;
+  line-height: 1.6;
+}
+
+.about-page h2 {
+  text-align: center;
+  color: #4b2e2e;
+  margin-bottom: 20px;
+}
+
+.about-page p {
+  margin-bottom: 16px;
+  color: #333;
 }

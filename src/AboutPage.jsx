@@ -1,10 +1,22 @@
-export default function AboutPage() {
-    return (
-      <section className="page about">
-        <h1>About</h1>
-        <p>A minimalist, brand-ready Todo built with React + Vite.</p>
-        <p>Design stays simple. Function stays clear.</p>
+export default function About() {
+  return (
+    <section className="about-page">
+      <h2>About</h2>
+      <p>
+        To‑do lists are for everyone—students, professionals, and creators. 
+        They help us capture tasks, organize life, and turn small steps into progress.
+      </p>
+      <p>
+        This website follows that tradition, but with a unique touch: 
+        it speaks especially to learners and makers who blend productivity with creativity.
+      </p>
+      <p>
+        Here, tasks are not just items to check off—they become part of a journey of growth, 
+        a quiet rhythm of learning, building, and handmade warmth.
+      </p>
+      <img src="/About.jpeg" alt="About" width="400" />
       </section>
-    );
-  }
-  
+  );
+}
+
+
