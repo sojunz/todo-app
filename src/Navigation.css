@@ -1,0 +1,56 @@
+/* 공통 네비게이션 */
+nav {
+    background: #fffaf0;
+    padding: 12px 24px;
+    border-bottom: 1px solid #e6d8c4;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #4b2e2e;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #6b3f3f;
+  }
+  
+  /* 로그아웃 버튼 */
+  .logout-btn {
+    background: #6b3f3f;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background: #583333;
+  }
+
+  /* 게스트 네비게이션 */
+.nav-guest {
+    background: #fdfcf7;
+  }
+  
+  /* 로그인 네비게이션 */
+  .nav-auth {
+    background: #fff7f0;
+  }
+  

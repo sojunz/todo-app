@@ -10,14 +10,14 @@ export default function Contact() {
         I’d love to hear from you.
       </p>
 
-      <div className="contact-grid">
+      <div className="contac t-grid">
         {/* Direct links */}
         <div className="contact-card">
           <h3>Reach me directly</h3>
           <ul className="contact-list">
             <li>
               <strong>Email:</strong>{" "}
-              <a href="mailto:hello@haru.example">sinchonblues@gmail.com</a>
+              <a href="mailto:sinchonblues@gmail.com">sinchonblues@gmail.com</a>
             </li>
             <li>
               <strong>GitHub:</strong>{" "}

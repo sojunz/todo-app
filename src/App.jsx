@@ -1,32 +1,59 @@
-import "./App.css"; // 꼭 있어야 함
-import { Routes, Route, Link } from "react-router-dom";
-import HomePage from "./HomePage.jsx";
-import TodoPage from "./TodoPage.jsx";
-import AboutPage from "./AboutPage.jsx";
-import ContactPage from "./ContactPage.jsx";
-import LoginPage from "./LoginPage.jsx";
-import SigninPage from "./SigninPage.jsx";
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import NavigationGuest from "./NavigationGuest";
+import NavigationAuth from "./NavigationAuth";
+
+import HomePage from "./HomePage";
+import AboutPage from "./AboutPage";
+import ContactPage from "./ContactPage";
+import TodoPage from "./TodoPage";
+import LoginPage from "./LoginPage";
+import SigninPage from "./SigninPage";
+import ProfilePage from "./ProfilePage";
+import SettingsPage from "./SettingsPage";
 
 export default function App() {
-  return (
-    <>
-      <nav className="nav-bar">
-        <Link to="/">Home</Link>
-        <Link to="/todo">Todo</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signin">Signup</Link>
-      </nav>
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/todo" element={<TodoPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signin" element={<SigninPage />} />
-      </Routes>
-    </>
+  const handleLogin = () => setIsLoggedIn(true);
+  const handleLogout = () => setIsLoggedIn(false);
+
+  return (
+    <Router>
+      <header>
+        {isLoggedIn ? (
+          <NavigationAuth onLogout={handleLogout} />
+        ) : (
+          <NavigationGuest />
+        )}
+      </header>
+
+      <main>
+        <Routes>
+          {/* 공통 */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+
+          {/* 게스트 전용 */}
+          {!isLoggedIn && (
+            <>
+              <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+              <Route path="/signin" element={<SigninPage onLogin={handleLogin} />} />
+            </>
+          )}
+
+          {/* 로그인 전용 */}
+          {isLoggedIn && (
+            <>
+              <Route path="/todo" element={<TodoPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </>
+          )}
+        </Routes>
+      </main>
+    </Router>
   );
 }
