@@ -1,5 +1,7 @@
+import "./App.css"; // 또는 Navigation.css
+
 import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import NavigationGuest from "./NavigationGuest";
 import NavigationAuth from "./NavigationAuth";
@@ -10,8 +12,7 @@ import ContactPage from "./ContactPage";
 import TodoPage from "./TodoPage";
 import LoginPage from "./LoginPage";
 import SigninPage from "./SigninPage";
-import ProfilePage from "./ProfilePage";
-import SettingsPage from "./SettingsPage";
+
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,7 +21,7 @@ export default function App() {
   const handleLogout = () => setIsLoggedIn(false);
 
   return (
-    <Router>
+    <>
       <header>
         {isLoggedIn ? (
           <NavigationAuth onLogout={handleLogout} />
@@ -54,6 +55,6 @@ export default function App() {
           )}
         </Routes>
       </main>
-    </Router>
+    </>
   );
 }
