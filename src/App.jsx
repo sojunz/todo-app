@@ -1,5 +1,7 @@
 import "./App.css"; // 또는 Navigation.css
 
+import Footer from "./Footer"; // Footer 컴포넌트 불러오기
+
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -55,6 +57,8 @@ export default function App() {
           )}
         </Routes>
       </main>
+
+      <Footer /> {/* ✅ 모든 페이지에 공통 Footer */}
     </>
   );
 }

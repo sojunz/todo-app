@@ -5,9 +5,9 @@
   margin: 60px auto;
   padding: 28px;
   border-radius: 16px;
-  background: #fffaf0; /* 따뜻한 아이보리 톤 */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  font-family: "Nunito", sans-serif;
+  background: white; /* 따뜻한 아이보리 톤 */
+  box-shadow: 0 6px 16px #f5f5f5;
+  font-family: "Playfair Display", serif;
 }
 
 .auth-page h2 {
@@ -42,7 +42,7 @@
 
 .auth-page button {
   padding: 12px;
-  background: #a67c52; /* 니트 감성 브라운 */
+  background: coral; /* 니트 감성 브라운 */
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -103,4 +103,21 @@
 .about-page p {
   margin-bottom: 16px;
   color: #333;
+}
+
+.foot-icon{
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle; /* down → middle */
+}
+
+footer {
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: whitesmoke; /* 따뜻한 배경 */
+  border-top: 1px solid #e6d8c4;
 }

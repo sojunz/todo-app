@@ -1,8 +1,8 @@
 /* 공통 네비게이션 */
 nav {
-  background: #fffaf0;
+  background: none;
   padding: 12px 24px;
-  border-bottom: 1px solid #e6d8c4;
+  border-bottom: 1px solid whitesmoke;
 }
 
 /* 네비게이션 바 */
@@ -10,7 +10,7 @@ nav {
   display: flex;
   justify-content: flex-end; /* 오른쪽 끝 정렬 */
   gap: 20px;
-  font-family: "cursive", sans-serif; /* coursive → 오타 수정 */
+  font-family: "Lavishly Yours", cursive;
 }
 
 .nav-bar a {
