@@ -36,6 +36,7 @@ export default function App() {
         <Routes>
           {/* 공통 */}
           <Route path="/" element={<HomePage />} />
+          <Route path="/todo" element={<TodoPage />} /> {/* ✅ Todo 라우트 */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
