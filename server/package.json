@@ -1,16 +1,15 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "type": "module", 
+  "type": "module",
   "main": "index.js",
   "scripts": {
-  "dev": "nodemon index.mjs"
-}
-,
+    "dev": "nodemon index.mjs"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^7.0.0",
-    "cors": "^2.8.5"
+    "mongoose": "^7.8.8"
   },
   "devDependencies": {
     "nodemon": "^3.0.0"

@@ -1,14 +1,14 @@
 /* Todo.css */
 body {
   font-family: "Noto Sans KR", sans-serif;
-  background-color: #fff0f6; /* 은은한 핑크 배경 */
-  color: #4a2c2a; /* 따뜻한 브라운 텍스트 */
+  background-color: #fdf6f0;
+  color: #333;
   padding: 2rem;
 }
 
 h1 {
   font-size: 2rem;
-  color: #d6336c; /* 포인트 핑크 */
+  color: #5c3d2e;
   margin-bottom: 1rem;
 }
 
@@ -21,33 +21,31 @@ form {
 input {
   flex: 1;
   padding: 0.5rem;
-  border: 1px solid #f3c4d7;
-  border-radius: 6px;
-  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button {
-  background-color: #ff85a2; /* 버튼 핑크 */
+  background-color: #5c3d2e;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
 }
 
 button:hover {
-  background-color: #d6336c; /* 진한 핑크 hover */
+  background-color: #7a4f3c;
 }
 
 li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffe3ec; /* 연핑크 카드 */
+  background: #fff;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
-  border-radius: 6px;
+  border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
@@ -57,4 +55,10 @@ li span {
 
 li span:hover {
   text-decoration: underline;
+}
+
+.centered-image {
+  display: block;
+  margin: 0 auto;
+  width: 30%; /* 또는 px 단위 */
 }

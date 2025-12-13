@@ -55,6 +55,8 @@ export default function TodoPage() {
           />
         ))}
       </ul>
+      <img src="/Home.JPG" alt="todo" className="centered-image" />
+  
     </div>
   );
 }
