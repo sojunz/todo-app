@@ -10,12 +10,12 @@ nav {
   display: flex;
   justify-content: flex-end; /* 오른쪽 끝 정렬 */
   gap: 20px;
-  font-family: "Lavishly Yours", cursive;
+  font-family: "Playfair Display", serif;
 }
 
 .nav-bar a {
   text-decoration: none;
-  color: #4b2e2e; /* 니트 감성 브라운 */
+  color: olivedrab; /* 니트 감성 브라운 */
   font-weight: 700;
   padding: 8px 12px;
   border-radius: 8px;
@@ -23,13 +23,13 @@ nav {
 }
 
 .nav-bar a:hover {
-  background: #fce8d5;
-  color: #8b5e3c;
+  background: whitesmoke;
+  color: palevioletred;
 }
 
 /* 로그아웃 버튼 */
 .logout-btn {
-  background: #6b3f3f;
+  background: olive;
   color: #fff;
   border: none;
   padding: 6px 12px;
@@ -39,7 +39,7 @@ nav {
 }
 
 .logout-btn:hover {
-  background: #583333;
+  background: olive;
 }
 
 /* 게스트 네비게이션 */
@@ -53,7 +53,7 @@ nav {
 }
 
 .nav-bar a.active {
-  background: #e0c3a3;
-  color: #4b2e2e;
+  background: pink;
+  color: olive;
 }
 

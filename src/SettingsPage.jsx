@@ -1,9 +1,20 @@
 export default function SettingsPage() {
     return (
-      <section className="settings-page">
+      <div className="page-container">
         <h2>Settings</h2>
-        <p>여기서 계정 설정이나 환경설정을 관리할 수 있어요.</p>
-      </section>
+
+        <img src="/setting.jpeg" alt="Settings" className="settings-image" />
+  
+        <div className="section-box">
+          <label>Theme</label>
+          <input type="text" placeholder="Light / Dark" />
+  
+          <label>Notifications</label>
+          <input type="text" placeholder="On / Off" />
+  
+          <button className="page-button">Update</button>
+        </div>
+      </div>
     );
   }
   

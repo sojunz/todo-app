@@ -48,5 +48,11 @@ function handleSubmit(e) {
 
   const subject = encodeURIComponent("HARU Contact");
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-  window.location.href = `mailto:hello@haru.example?subject=${subject}&body=${body}`;
-}
+   // ⭐ 1) 메일 앱 열기
+   window.location.href = `mailto:hello@haru.example?subject=${subject}&body=${body}`;
+
+   // ⭐ 2) 0.5초 뒤에 "Message Sent" 페이지로 이동
+   setTimeout(() => {
+     window.location.href = "/contact/sent";
+   }, 500);
+ }

@@ -8,7 +8,7 @@ export default function HomePage() {
   <p>It’s not just a task manager—it’s a quiet journal of growth, learning, and creation.</p>
 </section>
 
-      <img src="/Door.jpg" alt="Door Image" width="400" />
+      <img src="/Door.jpg" alt="Door Image" width="300" />
 
     </section>
   );
