@@ -1,17 +1,32 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./Navigation.css";
 
 export default function NavigationAuth({ onLogout }) {
   return (
-    <nav className="nav-auth">
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/todo">Todo</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
-        <li><Link to="/settings">Settings</Link></li>
+    <nav className="nav-bar nav-auth">
+      <ul className="nav-bar">
         <li>
-          <button onClick={onLogout} className="logout-btn">
-            Logout
-          </button>
+          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/todo" className={({ isActive }) => (isActive ? "active" : "")}>
+            Todo
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>
+            Profile
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/settings" className={({ isActive }) => (isActive ? "active" : "")}>
+            Settings
+          </NavLink>
+        </li>
+        <li>
+          <button onClick={onLogout} className="logout-btn">Logout</button>
         </li>
       </ul>
     </nav>

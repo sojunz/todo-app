@@ -1,48 +1,41 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function SigninPage() {
-  const [username, setUsername] = useState("");
+export default function SigninPage({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Signin attempt:", { username, email, password });
-    // 나중에 Node.js 서버 연결 자리
+    // 실제 회원가입 로직 대신 바로 로그인 처리
+    onLogin();
+    navigate("/"); // 회원가입 후 Home으로 이동
   };
 
   return (
     <section className="auth-page">
-      <h2>Sign Up</h2>
+      <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Email:
+        <div>
+          <label>Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password:
+        </div>
+        <div>
+          <label>Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Sign Up</button>
+        </div>
+        <button type="submit">Sign In</button>
       </form>
     </section>
   );

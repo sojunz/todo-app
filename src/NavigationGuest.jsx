@@ -1,17 +1,41 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 export default function NavigationGuest() {
   return (
     <nav className="nav-bar nav-guest">
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/todo">Todo</Link> {/* ✅ Todo 링크 추가 */}
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signin">Signin</Link>
-      </div>
+      <ul className="nav-bar">
+        <li>
+          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/todo" className={({ isActive }) => (isActive ? "active" : "")}>
+            Todo
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")}>
+            Contact
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>
+            Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/signin" className={({ isActive }) => (isActive ? "active" : "")}>
+            Signin
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 }

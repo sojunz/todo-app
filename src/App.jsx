@@ -14,7 +14,8 @@ import ContactPage from "./ContactPage";
 import TodoPage from "./TodoPage";
 import LoginPage from "./LoginPage";
 import SigninPage from "./SigninPage";
-
+import ProfilePage from "./ProfilePage";   // ✅ 추가
+import SettingsPage from "./SettingsPage"; // ✅ 추가
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,13 +35,13 @@ export default function App() {
 
       <main>
         <Routes>
-          {/* 공통 */}
+          {/* 공통 라우트 */}
           <Route path="/" element={<HomePage />} />
           <Route path="/todo" element={<TodoPage />} /> {/* ✅ Todo 라우트 */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
-          {/* 게스트 전용 */}
+          {/* 게스트 전용 라우트 */}
           {!isLoggedIn && (
             <>
               <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
@@ -48,10 +49,9 @@ export default function App() {
             </>
           )}
 
-          {/* 로그인 전용 */}
+          {/* 로그인 전용 라우트 */}
           {isLoggedIn && (
             <>
-              <Route path="/todo" element={<TodoPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/settings" element={<SettingsPage />} />
             </>

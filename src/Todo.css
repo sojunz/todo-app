@@ -57,8 +57,29 @@ li span:hover {
   text-decoration: underline;
 }
 
+.todo-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.todo-actions button {
+  padding: 0.5rem 1rem;
+  background-color:black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-actions button:hover {
+  background-color: #ddd;
+}
+
+
 .centered-image {
   display: block;
-  margin: 0 auto;
-  width: 30%; /* 또는 px 단위 */
+  margin: 2rem auto 0 auto; /* 위쪽 여백 2rem, 가운데 정렬 */
+  max-width: 50%;
+  height: auto;
 }
