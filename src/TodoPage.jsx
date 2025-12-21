@@ -55,6 +55,7 @@ export default function TodoPage() {
 
   return (
     <div>
+      <img src="/Home.jpg" alt="todo" className="centered-image" />
       <h1>My Haru</h1>
       <TodoForm onAdd={addTodo} />
       <ul>
@@ -73,8 +74,6 @@ export default function TodoPage() {
         <button onClick={saveTodos}>Save</button>
         <button onClick={clearAll}>Clear All</button>
       </div>
-
-      <img src="/Home.JPG" alt="todo" className="centered-image" />
     </div>
   );
 }

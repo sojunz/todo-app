@@ -42,7 +42,7 @@ export default function SigninPage({ onSignin }) {
         </div>
 
         <div className="form-button">
-          <button type="submit">Create Account</button>
+          <button type="submit">Join</button>
         </div>
       </form>
     </section>

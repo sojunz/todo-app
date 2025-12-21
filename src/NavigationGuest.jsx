@@ -5,6 +5,7 @@ export default function NavigationGuest() {
   return (
     <nav className="nav-bar nav-guest">
       <ul className="nav-bar">
+      <img src="/Logo.png" alt="Logo" className="logo" />
         <li>
           <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
             Home

@@ -14,7 +14,7 @@ export default function About() {
         Here, tasks are not just items to check off—they become part of a journey of growth, 
         a quiet rhythm of learning, building, and handmade warmth.
       </p>
-      <img src="/About.jpeg" alt="About" width="400" />
+      <img src="/About.jpg" alt="About" className="settings-image"  />
       </section>
   );
 }

@@ -5,6 +5,7 @@ export default function NavigationAuth({ onLogout }) {
   return (
     <nav className="nav-bar nav-auth">
       <ul className="nav-bar">
+      <img src="/Logo.png" alt="Logo" className="logo" />
         <li>
           <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
             Home
