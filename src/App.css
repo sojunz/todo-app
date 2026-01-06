@@ -6,7 +6,7 @@
   border-radius: 18px;
   background: #fffef9; /* 따뜻한 아이보리 */
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  font-family: "Playfair Display", serif;
+  font-family: "Nanum Pen Script", cursive;
 }
 
 /* 제목 */
@@ -73,7 +73,7 @@
   flex-direction: column; /* 제목과 이미지를 세로로 쌓기 */
   align-items: center;    /* 가로 중앙 정렬 */
   justify-content: center;/* 세로 중앙 정렬 (필요시) */
-  font-family: "playfair display", serif;
+  font-family: "Nanum Pen Script", cursive;
   text-align: center;     /* 텍스트 중앙 정렬 */
   margin-top: 40px;
   gap: 20px;              /* 제목과 이미지 사이 간격 */
@@ -84,7 +84,7 @@
   padding: 20px;
   background: none;
   border-radius: 12px;
-  font-family: "playfair display", serif;
+  font-family: "Nanum Pen Script", cursive;
   text-align: center;
   line-height: 1.6;
 }
@@ -102,7 +102,7 @@
   background: none;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  font-family: "playfair display", serif;
+  font-family: "Nanum Pen Script", cursive;
   line-height: 1.6;
 }
 
@@ -142,7 +142,7 @@ footer {
   background: #fffef9;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  font-family: "Playfair Display", serif;
+  font-family: "Nanum Pen Script", cursive;
 }
 
 /* 공통 제목 */
@@ -175,7 +175,7 @@ footer {
   padding: 12px 14px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  font-family: "Playfair Display", serif;
+  font-family: "Nanum Pen Script", cursive;
   font-size: 1rem;
   margin-bottom: 20px;
 }

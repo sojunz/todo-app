@@ -3,13 +3,13 @@ import "./App.css";
 import Footer from "./Footer";
 
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import NavigationGuest from "./NavigationGuest";
 import NavigationAuth from "./NavigationAuth";
 
-import HomePage from "./HomePage";          // Guest Home
-import AuthHomePage from "./AuthHomePage";  // ⭐ 로그인 후 홈 (새로 추가 필요)
+import HomePage from "./HomePage";
+import AuthHomePage from "./AuthHomePage";
 import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
 import TodoPage from "./TodoPage";
@@ -18,13 +18,23 @@ import SigninPage from "./SigninPage";
 import ProfilePage from "./ProfilePage";
 import SettingsPage from "./SettingsPage";
 import ContactSentPage from "./ContactSentPage";
-
+import SavePage from "./SavePage";
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // ⭐ 로그인 상태를 localStorage에서 불러오기
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
 
-  const handleLogin = () => setIsLoggedIn(true);
-  const handleLogout = () => setIsLoggedIn(false);
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem("isLoggedIn", "true");
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem("isLoggedIn");
+  };
 
   return (
     <>
@@ -38,7 +48,7 @@ export default function App() {
 
       <main>
         <Routes>
-          {/* ⭐ 홈 라우트: 로그인 여부에 따라 다르게 */}
+          {/* ⭐ 홈: 로그인 여부에 따라 다르게 */}
           <Route
             path="/"
             element={isLoggedIn ? <AuthHomePage /> : <HomePage />}
@@ -49,23 +59,48 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/contact/sent" element={<ContactSentPage />} />
+          <Route path="/save" element={<SavePage />} />
 
+          {/* ⭐ 로그인/회원가입 라우트: 로그인 상태에서도 접근 가능하지만 자동 리다이렉트 */}
+          <Route
+            path="/login"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/" replace />
+              ) : (
+                <LoginPage onLogin={handleLogin} />
+              )
+            }
+          />
 
-          {/* 게스트 전용 라우트 */}
-          {!isLoggedIn && (
-            <>
-              <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-              <Route path="/signin" element={<SigninPage onLogin={handleLogin} />} />
-            </>
-          )}
+          <Route
+            path="/signin"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/" replace />
+              ) : (
+                <SigninPage onLogin={handleLogin} />
+              )
+            }
+          />
 
           {/* 로그인 전용 라우트 */}
-          {isLoggedIn && (
-            <>
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/settings" element={<SettingsPage />} />
-            </>
-          )}
+          <Route
+            path="/profile"
+            element={
+              isLoggedIn ? <ProfilePage /> : <Navigate to="/login" replace />
+            }
+          />
+
+          <Route
+            path="/settings"
+            element={
+              isLoggedIn ? <SettingsPage /> : <Navigate to="/login" replace />
+            }
+          />
+
+          {/* 존재하지 않는 경로 처리 */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
