@@ -2,7 +2,6 @@ import "./App.css";
 
 import Footer from "./Footer";
 
-import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import NavigationGuest from "./NavigationGuest";
@@ -19,21 +18,17 @@ import ProfilePage from "./ProfilePage";
 import SettingsPage from "./SettingsPage";
 import ContactSentPage from "./ContactSentPage";
 import SavePage from "./SavePage";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
-  // ⭐ 로그인 상태를 localStorage에서 불러오기
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true"
-  );
+  // ⭐ 로그인 여부는 token 하나로만 판단
+  const token = localStorage.getItem("token");
+  const isLoggedIn = !!token;
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    localStorage.setItem("isLoggedIn", "true");
-  };
-
+  // ⭐ 로그아웃
   const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("token");
+    window.location.reload();
   };
 
   return (
@@ -48,7 +43,7 @@ export default function App() {
 
       <main>
         <Routes>
-          {/* ⭐ 홈: 로그인 여부에 따라 다르게 */}
+          {/* 홈 */}
           <Route
             path="/"
             element={isLoggedIn ? <AuthHomePage /> : <HomePage />}
@@ -59,32 +54,23 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/contact/sent" element={<ContactSentPage />} />
-          <Route path="/save" element={<SavePage />} />
 
-          {/* ⭐ 로그인/회원가입 라우트: 로그인 상태에서도 접근 가능하지만 자동 리다이렉트 */}
+          {/* ⭐ SavePage 보호 */}
           <Route
-            path="/login"
+            path="/save"
             element={
-              isLoggedIn ? (
-                <Navigate to="/" replace />
-              ) : (
-                <LoginPage onLogin={handleLogin} />
-              )
+              <ProtectedRoute>
+                <SavePage />
+              </ProtectedRoute>
             }
           />
 
-          <Route
-            path="/signin"
-            element={
-              isLoggedIn ? (
-                <Navigate to="/" replace />
-              ) : (
-                <SigninPage onLogin={handleLogin} />
-              )
-            }
-          />
+          {/* 로그인 */}
+      {/* 로그인 */} <Route path="/login" element={<LoginPage />} />
 
-          {/* 로그인 전용 라우트 */}
+          {/* 회원가입 */} <Route path="/signin" element={<SigninPage />} />
+
+          {/* 로그인 전용 페이지 */}
           <Route
             path="/profile"
             element={
@@ -99,7 +85,7 @@ export default function App() {
             }
           />
 
-          {/* 존재하지 않는 경로 처리 */}
+          {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
@@ -108,3 +94,4 @@ export default function App() {
     </>
   );
 }
+

@@ -1,33 +1,34 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import Todo from "./model/todoModel.js";
 
 const app = express();
 const PORT = 4000;
 
-// ✅ 미들웨어
+// 미들웨어
 app.use(cors());
 app.use(express.json());
 
-// ✅ MongoDB 연결 (계정/비밀번호 사용)
+// 전체 삭제 API
+app.delete("/api/todos", async (req, res) => {
+  try {
+    await Todo.deleteMany({});
+    res.json({ message: "All todos deleted" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete todos" });
+  }
+});
+
+// MongoDB 연결
 mongoose.connect("mongodb://sohyung:비밀번호@127.0.0.1:27017/todo-app?authSource=admin", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then(() => console.log("✅ Local MongoDB connected with user"))
-  .catch(err => console.error("❌ MongoDB connection error:", err));
+  .then(() => console.log("Local MongoDB connected with user"))
+  .catch(err => console.error("MongoDB connection error:", err));
 
-// ✅ Todo 모델 정의
-const todoSchema = new mongoose.Schema({
-  text: { type: String, required: true },
-  done: { type: Boolean, default: false },
-  createdAt: { type: Date, default: Date.now }
-});
-
-const Todo = mongoose.model("Todo", todoSchema);
-
-// ✅ 라우트
-// 전체 Todo 가져오기
+// 라우트
 app.get("/api/todos", async (req, res) => {
   try {
     const todos = await Todo.find();
@@ -37,7 +38,6 @@ app.get("/api/todos", async (req, res) => {
   }
 });
 
-// 새 Todo 추가
 app.post("/api/todos", async (req, res) => {
   try {
     const { text } = req.body;
@@ -52,7 +52,6 @@ app.post("/api/todos", async (req, res) => {
   }
 });
 
-// Todo 완료 상태 업데이트
 app.put("/api/todos/:id", async (req, res) => {
   try {
     const { done } = req.body;
@@ -68,7 +67,6 @@ app.put("/api/todos/:id", async (req, res) => {
   }
 });
 
-// Todo 삭제
 app.delete("/api/todos/:id", async (req, res) => {
   try {
     const deleted = await Todo.findByIdAndDelete(req.params.id);
@@ -79,7 +77,7 @@ app.delete("/api/todos/:id", async (req, res) => {
   }
 });
 
-// ✅ 서버 실행
+// 서버 실행
 app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });

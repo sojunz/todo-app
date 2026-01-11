@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SigninPage({ onSignin }) {
+export default function SigninPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -9,8 +9,10 @@ export default function SigninPage({ onSignin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 회원가입 성공 처리 (예시)
-    onSignin();
+    // 회원가입 성공 → token 저장
+    localStorage.setItem("token", "dummy-token");
+
+    // 로그인 페이지로 이동
     navigate("/login");
   };
 

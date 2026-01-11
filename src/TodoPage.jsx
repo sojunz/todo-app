@@ -51,9 +51,18 @@ export default function TodoPage() {
   };
 
   // 전체 삭제
-  const clearAll = () => {
-    setTodos([]);
+  const clearAll = async () => {
+    try {
+      await fetch("http://localhost:4000/api/todos", {
+        method: "DELETE",
+      });
+  
+      setTodos([]); // 화면에서도 즉시 비우기
+    } catch (error) {
+      console.error("전체 삭제 실패:", error);
+    }
   };
+  
 
   // ⭐ 저장 (빈 배열 저장 방지)
   const saveTodos = () => {
