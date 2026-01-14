@@ -21,18 +21,16 @@ import SavePage from "./SavePage";
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
-  // ⭐ 로그인 여부는 token 하나로만 판단
   const token = localStorage.getItem("token");
   const isLoggedIn = !!token;
 
-  // ⭐ 로그아웃
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.reload();
   };
 
   return (
-    <>
+    <div className="layout-container">
       <header>
         {isLoggedIn ? (
           <NavigationAuth onLogout={handleLogout} />
@@ -43,19 +41,16 @@ export default function App() {
 
       <main>
         <Routes>
-          {/* 홈 */}
           <Route
             path="/"
             element={isLoggedIn ? <AuthHomePage /> : <HomePage />}
           />
 
-          {/* 공통 라우트 */}
           <Route path="/todo" element={<TodoPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/contact/sent" element={<ContactSentPage />} />
 
-          {/* ⭐ SavePage 보호 */}
           <Route
             path="/save"
             element={
@@ -65,12 +60,9 @@ export default function App() {
             }
           />
 
-          {/* 로그인 */}
-      {/* 로그인 */} <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signin" element={<SigninPage />} />
 
-          {/* 회원가입 */} <Route path="/signin" element={<SigninPage />} />
-
-          {/* 로그인 전용 페이지 */}
           <Route
             path="/profile"
             element={
@@ -85,13 +77,11 @@ export default function App() {
             }
           />
 
-          {/* 404 */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
-

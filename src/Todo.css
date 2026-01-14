@@ -1,85 +1,111 @@
-/* Todo.css */
-body {
+/* 전체 콘텐츠 중앙 정렬 */
+.todo-layout {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  text-align: center;
   font-family: "Nanum Pen Script", cursive;
   background-color: #fdf6f0;
   color: black;
-  padding: 2rem;
 }
 
+/* 이미지 */
+.todo-image {
+  display: block;
+  margin: 2rem auto 1rem auto;
+  max-width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* 제목 */
 h1 {
   font-size: 2rem;
   color: palevioletred;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
+/* 입력창 */
 form {
   display: flex;
+  justify-content: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
   margin-bottom: 1rem;
 }
 
 input {
-  flex: 1;
-  padding: 0.5rem;
+  width: 100%;
+  max-width: 520px;
+  padding: 0.9rem;
+  font-size: 1.1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-family: "Nanum Pen Script", cursive;
 }
 
+/* 버튼 */
 button {
   background-color: olive;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
   cursor: pointer;
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: bold;
 }
 
 button:hover {
   background-color: #7a4f3c;
 }
 
-li {
+/* 리스트 */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.todo-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  padding: 0.5rem;
+  padding: 0.75rem;
   margin-bottom: 0.5rem;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-li span {
+.todo-list li span {
   cursor: pointer;
 }
 
-li span:hover {
+.todo-list li span:hover {
   text-decoration: underline;
 }
 
+/* Save / Clear All 버튼 */
 .todo-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .todo-actions button {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.2rem;
   background-color: olive;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: bold;
 }
 
 .todo-actions button:hover {
   background-color: #ddd;
-}
-
-
-.centered-image {
-  display: block;
-  margin: 2rem auto 0 auto; /* 위쪽 여백 2rem, 가운데 정렬 */
-  max-width: 50%;
-  height: auto;
 }
