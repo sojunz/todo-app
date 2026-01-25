@@ -1,60 +1,52 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import "./SavePage.css";
 
 export default function SavePage() {
+  const [savedLists, setSavedLists] = useState([]);
   const navigate = useNavigate();
 
-  const [savedLists, setSavedLists] = useState(
-    JSON.parse(localStorage.getItem("savedTodos")) || []
-  );
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("savedTodos")) || [];
+    setSavedLists(saved);
+  }, []);
 
-  const formatDate = (iso) =>
-    new Date(iso).toLocaleDateString("en-NZ", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-
-  const deleteSaved = (index) => {
-    const updated = [...savedLists];
-    updated.splice(index, 1);
-    localStorage.setItem("savedTodos", JSON.stringify(updated));
+  const handleDelete = (index) => {
+    const updated = savedLists.filter((_, i) => i !== index);
     setSavedLists(updated);
+    localStorage.setItem("savedTodos", JSON.stringify(updated));
   };
 
   return (
-    <div className="save-container">
+    <div className="save-wrapper">
       <h1 className="save-title">Saved Lists</h1>
 
-      {savedLists.length === 0 ? (
-        <p className="save-empty">No saved lists yet.</p>
-      ) : (
-        savedLists.map((list, index) => (
-          <div key={index} className="save-card">
-            <h3 className="save-card-title">Saved #{index + 1}</h3>
+      <div className="save-grid">
+        {savedLists.map((list, index) => (
+          <div className="card" key={index}>
+            <div className="card-header">
+              <span className="card-number">Saved #{index + 1}</span>
+              <span className="card-date">
+                {new Date(list[0].savedAt).toLocaleDateString()}
+              </span>
+            </div>
 
-            {list.map((todo, i) => (
-              <div key={i} className="save-todo-item">
-                <p className="save-text">• {todo.text}</p>
-                <p className="save-date">Saved at: {formatDate(todo.savedAt)}</p>
-              </div>
-            ))}
+            <ul className="card-items">
+              {list.map((item, i) => (
+                <li key={i}>{item.text}</li>
+              ))}
+            </ul>
 
-            <button
-              className="save-delete-button"
-              onClick={() => deleteSaved(index)}
-            >
+            <button className="card-delete" onClick={() => handleDelete(index)}>
               Delete
             </button>
           </div>
-        ))
-      )}
+        ))}
+      </div>
 
-      <button className="save-back-button" onClick={() => navigate("/todo")}>
+      <button className="save-back" onClick={() => navigate("/todo")}>
         Back to My Haru
       </button>
     </div>
   );
 }
-

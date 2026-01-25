@@ -9,6 +9,7 @@ export default function TodoPage() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // 서버에서 Todo 불러오기
   useEffect(() => {
     fetch("http://localhost:4000/api/todos")
       .then(res => res.json())
@@ -18,6 +19,7 @@ export default function TodoPage() {
       });
   }, []);
 
+  // 새 Todo 추가
   const addTodo = async (text) => {
     const res = await fetch("http://localhost:4000/api/todos", {
       method: "POST",
@@ -28,6 +30,7 @@ export default function TodoPage() {
     setTodos([...todos, newTodo]);
   };
 
+  // Todo 완료 상태 업데이트
   const toggleTodo = async (id, done) => {
     const res = await fetch(`http://localhost:4000/api/todos/${id}`, {
       method: "PUT",
@@ -38,25 +41,31 @@ export default function TodoPage() {
     setTodos(todos.map(todo => todo._id === id ? updated : todo));
   };
 
+  // Todo 삭제
   const deleteTodo = async (id) => {
     await fetch(`http://localhost:4000/api/todos/${id}`, { method: "DELETE" });
     setTodos(todos.filter(todo => todo._id !== id));
   };
 
+  // 전체 삭제
   const clearAll = async () => {
     await fetch("http://localhost:4000/api/todos", { method: "DELETE" });
     setTodos([]);
   };
 
+  // ⭐ Save해도 TodoPage는 유지되는 버전
   const saveTodos = () => {
     const saved = JSON.parse(localStorage.getItem("savedTodos")) || [];
+
     const newList = todos.map(todo => ({
       text: todo.text,
       savedAt: new Date().toISOString()
     }));
+
     saved.push(newList);
     localStorage.setItem("savedTodos", JSON.stringify(saved));
-    navigate("/save");
+
+    navigate("/save"); // TodoPage는 그대로 유지
   };
 
   return (
@@ -82,7 +91,9 @@ export default function TodoPage() {
           </ul>
 
           <div className="todo-actions">
-            <button onClick={saveTodos} disabled={todos.length === 0}>Save</button>
+            <button onClick={saveTodos} disabled={todos.length === 0}>
+              Save
+            </button>
             <button onClick={clearAll}>Clear All</button>
           </div>
         </>
@@ -90,3 +101,4 @@ export default function TodoPage() {
     </main>
   );
 }
+

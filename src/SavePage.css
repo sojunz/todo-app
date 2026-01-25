@@ -1,81 +1,92 @@
-.save-container {
-  max-width: 600px;
+.save-wrapper {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 40px 20px;
   text-align: center;
+  font-family: "Nanum Pen Script", cursive;
+  background-color: #fffdf9;
 }
 
 .save-title {
-  font-size: 2rem;
-  margin-bottom: 24px;
-  font-family: "Nanum Pen Script", cursive;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: palevioletred;
 }
 
-.save-empty {
-  font-size: 1.2rem;
-  color: #888;
+/* 작은 카드들이 안정적으로 배치됨 */
+.save-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 22px;
+  margin-bottom: 40px;
 }
 
-.save-card {
-  background-color: #fff;
-  border-radius: 8px;
+/* 카드 */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
   padding: 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-height: 180px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
 }
 
-.save-card-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-align: left;
-}
-
-.save-todo-item {
-  text-align: left;
-}
-
-.save-text {
+/* 카드 상단 */
+.card-header {
+  display: flex;
+  justify-content: space-between;
   font-size: 1rem;
-  margin: 4px 0;
+  margin-bottom: 10px;
 }
 
-.save-date {
+.card-number {
+  font-weight: bold;
+  color: olivedrab;
+}
+
+.card-date {
   font-size: 0.9rem;
-  color: #666;
+  color: #777;
 }
 
-.save-delete-button {
-  align-self: flex-end;
+/* 리스트 */
+.card-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+  text-align: left;
+}
+
+.card-items li {
+  margin: 4px 0;
+  font-size: 1.1rem;
+}
+
+/* 삭제 버튼 */
+.card-delete {
   background-color: #ff4d4d;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  padding: 6px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 12px;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  align-self: flex-end;
 }
 
-.save-delete-button:hover {
-  background-color: #e60000;
+.card-delete:hover {
+  background-color: #d90000;
 }
 
-.save-back-button {
-  background-color: #4CAF50;
+/* Back 버튼 */
+.save-back {
+  background-color: palevioletred;
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 4px;
+  padding: 12px 22px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 24px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.save-back-button:hover {
-  background-color: #388e3c;
+  font-size: 1.2rem;
 }

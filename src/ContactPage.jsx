@@ -8,7 +8,8 @@ export default function ContactPage() {
         Have a question, idea, or collaboration in mind? I’d love to hear from you.
       </p>
 
-      <div className="contact-grid">
+      <div className="contact-grid-3">
+        {/* 1) 왼쪽 카드 */}
         <div className="contact-card">
           <h3>Reach me directly</h3>
           <ul className="contact-list">
@@ -18,6 +19,7 @@ export default function ContactPage() {
           </ul>
         </div>
 
+        {/* 2) 가운데 폼 */}
         <form className="contact-card contact-form" onSubmit={handleSubmit}>
           <h3>Send a message</h3>
           <label htmlFor="name">Name</label>
@@ -29,6 +31,12 @@ export default function ContactPage() {
           <button type="submit">Send</button>
           <p className="privacy-hint">This form opens your email app—no data is stored on this site.</p>
         </form>
+
+        {/* 3) 오른쪽 이미지 카드 */}
+        <div className="contact-card image-card">
+          <img src="/Contact.jpg" alt="illustration" className="contact-image" />
+          <p className="image-caption">Made with warmth</p>
+        </div>
       </div>
     </section>
   );
@@ -48,11 +56,10 @@ function handleSubmit(e) {
 
   const subject = encodeURIComponent("HARU Contact");
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-   // ⭐ 1) 메일 앱 열기
-   window.location.href = `mailto:hello@haru.example?subject=${subject}&body=${body}`;
 
-   // ⭐ 2) 0.5초 뒤에 "Message Sent" 페이지로 이동
-   setTimeout(() => {
-     window.location.href = "/contact/sent";
-   }, 500);
- }
+  window.location.href = `mailto:hello@haru.example?subject=${subject}&body=${body}`;
+
+  setTimeout(() => {
+    window.location.href = "/contact/sent";
+  }, 500);
+}
