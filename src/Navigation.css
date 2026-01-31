@@ -1,79 +1,48 @@
-/* 공통 네비게이션 */
-nav {
-  background: none;
-  padding: 3px 6px; /* ← 여백 줄임 */
-  border-bottom: 1px solid black;
-}
-
-/* 네비게이션 바 */
-.nav-bar {
+nav.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 1000;
+  height: 70px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px; /* ← 전체 간격 줄임 */
-  font-family: "Nanum Pen Script", cursive;
+  justify-content: center;
+  padding: 0;
 }
 
-/* 로고 */
-.logo {
-  height: 64px; /* ← 높이 줄임 */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* 메뉴 링크들 */
-.nav-links {
+ul.nav-bar {
   display: flex;
-  gap: 12px; /* ← 링크 간격 줄임 */
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
 }
 
-/* 각 링크 */
-.nav-bar a {
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+nav a {
   text-decoration: none;
-  color: palevioletred;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a.active {
   font-weight: 700;
-  padding: 6px 10px; /* ← 내부 여백 줄임 */
-  border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
+  border-bottom: 2px solid #333;
 }
 
-.nav-bar a:hover {
-  background: whitesmoke;
-  color: olive;
-}
-
-/* 로그아웃 버튼 */
 .logout-btn {
   background: none;
-  color: red;
-  height: 30px;
-  padding: 0 12px; /* ← 좌우 여백 줄임 */
-  display: flex;
-  align-items: center;
-  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
   cursor: pointer;
-  font-weight: 1000;
-  font-family: "Nanum Pen Script", cursive;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.logout-btn:hover {
-  background: none;
-  color: palevioletred;
-}
-
-/* 게스트 네비게이션 */
-.nav-guest {
-  background: #fdfcf7;
-}
-
-/* 로그인 네비게이션 */
-.nav-auth {
-  background: #fff7f0;
-}
-
-/* 현재 페이지 표시 */
-.nav-bar a.active {
-  background: none;
-  color: olive;
 }

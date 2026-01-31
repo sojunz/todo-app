@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./Footer";
 
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import NavigationGuest from "./NavigationGuest";
 import NavigationAuth from "./NavigationAuth";
@@ -13,7 +14,7 @@ import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
 import TodoPage from "./TodoPage";
 import LoginPage from "./LoginPage";
-import SigninPage from "./SigninPage";
+import SignUp from "./SignUp";
 import ProfilePage from "./ProfilePage";
 import SettingsPage from "./SettingsPage";
 import ContactSentPage from "./ContactSentPage";
@@ -21,12 +22,22 @@ import SavePage from "./SavePage";
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
-  const token = localStorage.getItem("token");
-  const isLoggedIn = !!token;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // ⭐ 앱이 처음 로드될 때 token 읽기
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+
+  // ⭐ LoginPage에서 호출할 함수
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.reload();
+    setIsLoggedIn(false);
   };
 
   return (
@@ -54,14 +65,18 @@ export default function App() {
           <Route
             path="/save"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <SavePage />
               </ProtectedRoute>
             }
           />
 
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signin" element={<SigninPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage onLogin={handleLogin} />}
+          />
+
+          <Route path="/signUp" element={<SignUp />} />
 
           <Route
             path="/profile"

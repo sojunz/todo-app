@@ -32,7 +32,7 @@ export default function NavigationGuest() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/signin" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/signUp" className={({ isActive }) => (isActive ? "active" : "")}>
             Signin
           </NavLink>
         </li>

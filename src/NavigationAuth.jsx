@@ -19,7 +19,6 @@ export default function NavigationAuth({ onLogout }) {
           </NavLink>
         </li>
 
-        {/* ⭐ Save 메뉴 추가 */}
         <li>
           <NavLink to="/save" className={({ isActive }) => (isActive ? "active" : "")}>
             Save
@@ -39,7 +38,9 @@ export default function NavigationAuth({ onLogout }) {
         </li>
 
         <li>
-          <button onClick={onLogout} className="logout-btn">Logout</button>
+          <button className="logout-btn" onClick={onLogout}>
+            Logout
+          </button>
         </li>
       </ul>
     </nav>

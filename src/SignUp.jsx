@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SigninPage() {
+export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -12,13 +13,13 @@ export default function SigninPage() {
     // 회원가입 성공 → token 저장
     localStorage.setItem("token", "dummy-token");
 
-    // 로그인 페이지로 이동
-    navigate("/login");
+    // 홈으로 이동
+    navigate("/", { replace: true });
   };
 
   return (
     <section className="auth-page">
-      <h2>Sign In</h2>
+      <h2>Sign Up</h2>
 
       <form onSubmit={handleSubmit}>
         <div className="form-row">
@@ -44,7 +45,7 @@ export default function SigninPage() {
         </div>
 
         <div className="form-button">
-          <button type="submit">Join</button>
+          <button type="submit">Sign Up</button>
         </div>
       </form>
     </section>
