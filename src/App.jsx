@@ -24,13 +24,11 @@ import ProtectedRoute from "./ProtectedRoute";
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // ⭐ 앱이 처음 로드될 때 token 읽기
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
   }, []);
 
-  // ⭐ LoginPage에서 호출할 함수
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
@@ -41,7 +39,8 @@ export default function App() {
   };
 
   return (
-    <div className="layout-container">
+    <>
+      {/* ⭐ header는 layout-container 밖 */}
       <header>
         {isLoggedIn ? (
           <NavigationAuth onLogout={handleLogout} />
@@ -50,53 +49,57 @@ export default function App() {
         )}
       </header>
 
-      <main>
-        <Routes>
-          <Route
-            path="/"
-            element={isLoggedIn ? <AuthHomePage /> : <HomePage />}
-          />
+      {/* ⭐ 가운데 콘텐츠만 감싸는 컨테이너 */}
+      <div className="layout-container">
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={isLoggedIn ? <AuthHomePage /> : <HomePage />}
+            />
 
-          <Route path="/todo" element={<TodoPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/contact/sent" element={<ContactSentPage />} />
+            <Route path="/todo" element={<TodoPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact/sent" element={<ContactSentPage />} />
 
-          <Route
-            path="/save"
-            element={
-              <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <SavePage />
-              </ProtectedRoute>
-            }
-          />
+            <Route
+              path="/save"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavePage />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route
-            path="/login"
-            element={<LoginPage onLogin={handleLogin} />}
-          />
+            <Route
+              path="/login"
+              element={<LoginPage onLogin={handleLogin} />}
+            />
 
-          <Route path="/signUp" element={<SignUp />} />
+            <Route path="/signUp" element={<SignUp />} />
 
-          <Route
-            path="/profile"
-            element={
-              isLoggedIn ? <ProfilePage /> : <Navigate to="/login" replace />
-            }
-          />
+            <Route
+              path="/profile"
+              element={
+                isLoggedIn ? <ProfilePage /> : <Navigate to="/login" replace />
+              }
+            />
 
-          <Route
-            path="/settings"
-            element={
-              isLoggedIn ? <SettingsPage /> : <Navigate to="/login" replace />
-            }
-          />
+            <Route
+              path="/settings"
+              element={
+                isLoggedIn ? <SettingsPage /> : <Navigate to="/login" replace />
+              }
+            />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+      </div>
 
+      {/* ⭐ footer도 layout-container 밖 */}
       <Footer />
-    </div>
+    </>
   );
 }

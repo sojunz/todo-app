@@ -1,4 +1,29 @@
 /* ------------------------------ */
+/* 0) 전체 레이아웃 안정화        */
+/* ------------------------------ */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px;     /* header 높이 보정 */
+  padding-bottom: 80px;  /* footer 높이 보정 */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Nanum Pen Script", cursive;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------------ */
 /* 1) Navigation (맨 위 고정)     */
 /* ------------------------------ */
 header {
@@ -12,29 +37,67 @@ header {
 }
 
 /* ------------------------------ */
-/* 2) 전체 레이아웃 (폭 확장 적용) */
+/* 2) Footer (맨 아래 고정)       */
 /* ------------------------------ */
-.layout-container {
+footer.footer-bar {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  max-width: 1200px;   /* ⭐ 폭 확장 */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 52px 24px 52px;
-  box-sizing: border-box;
-  min-height: calc(100vh - 64px);
+  background: none;
+  border-top: 1px solid black;
+  padding: 16px 0;
+  text-align: center;
+  z-index: 1000;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.foot-icon {
+  height: 80px;
+  margin: 0;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  color: palevioletred;
   font-family: "Nanum Pen Script", cursive;
 }
 
-main {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px 0;
-  box-sizing: border-box;
+/* ------------------------------ */
+/* 3) HomePage                    */
+/* ------------------------------ */
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.intro-block {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: none;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.intro-block p {
+  margin-bottom: 16px;
+  color: #4b2e2e;
+  font-weight: 500;
 }
 
 /* ------------------------------ */
-/* 3) Auth Pages (Login & Signin) */
+/* 4) Auth Pages (Login & SignUp) */
 /* ------------------------------ */
 .auth-page {
   max-width: 420px;
@@ -43,7 +106,6 @@ main {
   border-radius: 18px;
   background: #fffef9;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  font-family: "Nanum Pen Script", cursive;
 }
 
 .auth-page h2 {
@@ -102,35 +164,6 @@ main {
 }
 
 /* ------------------------------ */
-/* 4) HomePage                    */
-/* ------------------------------ */
-.home-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 40px;
-  gap: 20px;
-  font-family: "Nanum Pen Script", cursive;
-}
-
-.intro-block {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  background: none;
-  border-radius: 12px;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.intro-block p {
-  margin-bottom: 16px;
-  color: #4b2e2e;
-  font-weight: 500;
-}
-
-/* ------------------------------ */
 /* 5) About Page                  */
 /* ------------------------------ */
 .about-page {
@@ -140,7 +173,6 @@ main {
   background: none;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  font-family: "Nanum Pen Script", cursive;
   line-height: 1.6;
 }
 
@@ -156,38 +188,7 @@ main {
 }
 
 /* ------------------------------ */
-/* 6) Footer (작고 단정하게 고정) */
-/* ------------------------------ */
-footer.footer-bar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: none;
-  border-top: 1px solid black;
-  padding: 16px 0;
-  text-align: center;
-}
-
-.footer-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.foot-icon {
-  height: 80px;
-  margin: 0;
-}
-
-.footer-text {
-  font-size: 1.1rem;
-  color: palevioletred;
-  font-family: "Nanum Pen Script", cursive;
-}
-
-/* ------------------------------ */
-/* 7) 공통 페이지 박스            */
+/* 6) 공통 페이지 박스            */
 /* ------------------------------ */
 .page-container {
   max-width: 700px;
@@ -196,7 +197,6 @@ footer.footer-bar {
   background: #fffef9;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  font-family: "Nanum Pen Script", cursive;
 }
 
 .page-container h2 {
@@ -225,7 +225,6 @@ footer.footer-bar {
   padding: 12px 14px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  font-family: "Nanum Pen Script", cursive;
   font-size: 1rem;
   margin-bottom: 20px;
 }
@@ -257,4 +256,8 @@ footer.footer-bar {
   margin: 0 auto 24px;
   border-radius: 14px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+header nav a {
+  font-family: "Nanum Pen Script", cursive;
 }

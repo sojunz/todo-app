@@ -45,9 +45,10 @@ export default function ContactPage() {
 function handleSubmit(e) {
   e.preventDefault();
   const form = e.currentTarget;
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const message = form.message.value.trim();
+
+  const name = form.querySelector("#name").value.trim();
+  const email = form.querySelector("#email").value.trim();
+  const message = form.querySelector("#message").value.trim();
 
   if (!name || !email || !message) {
     alert("Please fill in all fields.");

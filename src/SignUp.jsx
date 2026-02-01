@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SignUp() {
+export default function SignUp({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,6 +12,9 @@ export default function SignUp() {
 
     // 회원가입 성공 → token 저장
     localStorage.setItem("token", "dummy-token");
+
+    // App.jsx에게 로그인 상태 업데이트 요청
+    onLogin();
 
     // 홈으로 이동
     navigate("/", { replace: true });
@@ -51,3 +54,4 @@ export default function SignUp() {
     </section>
   );
 }
+
