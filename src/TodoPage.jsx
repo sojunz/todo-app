@@ -11,7 +11,7 @@ export default function TodoPage() {
 
   // 서버에서 Todo 불러오기
   useEffect(() => {
-    fetch("http://localhost:4000/api/todos")
+    fetch("/api/todos")
       .then(res => res.json())
       .then(data => {
         setTodos(data);
