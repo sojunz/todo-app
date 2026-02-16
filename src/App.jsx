@@ -1,13 +1,9 @@
 import "./App.css";
-
 import Footer from "./Footer";
-
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import NavigationGuest from "./NavigationGuest";
 import NavigationAuth from "./NavigationAuth";
-
 import HomePage from "./HomePage";
 import AuthHomePage from "./AuthHomePage";
 import AboutPage from "./AboutPage";

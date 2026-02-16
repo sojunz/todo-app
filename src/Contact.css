@@ -1,12 +1,10 @@
-/* ------------------------------ */
-/* Contact Page 전체 컨테이너     */
-/* ------------------------------ */
+
 .contact-page {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px;
 
-  /* ⭐ footer 침범 방지 핵심 */
+
   padding-bottom: 320px;
 
   background-color: #fffaf5;
@@ -15,7 +13,6 @@
   box-sizing: border-box;
 }
 
-/* 제목 & 소개 */
 .contact-page h2 {
   font-size: 2rem;
   color: palevioletred;
@@ -28,9 +25,6 @@
   margin-bottom: 30px;
 }
 
-/* ------------------------------ */
-/* 3단 Grid                       */
-/* ------------------------------ */
 .contact-grid-3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -38,9 +32,6 @@
   align-items: stretch; /* ⭐ 카드 높이 통일 */
 }
 
-/* ------------------------------ */
-/* 공통 카드 스타일               */
-/* ------------------------------ */
 .contact-card {
   background: white;
   padding: 24px;
@@ -59,9 +50,6 @@
   text-align: left;
 }
 
-/* ------------------------------ */
-/* Reach me 카드                  */
-/* ------------------------------ */
 .contact-list {
   list-style: none;
   padding: 0;
@@ -78,9 +66,6 @@
   text-decoration: none;
 }
 
-/* ------------------------------ */
-/* Form 카드                      */
-/* ------------------------------ */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -127,9 +112,6 @@
   margin-top: 6px;
 }
 
-/* ------------------------------ */
-/* 이미지 카드                    */
-/* ------------------------------ */
 .image-card {
   display: flex;
   flex-direction: column;
@@ -155,9 +137,6 @@
   text-align: center;
 }
 
-/* ------------------------------ */
-/* 반응형                         */
-/* ------------------------------ */
 @media (max-width: 900px) {
   .contact-grid-3 {
     grid-template-columns: 1fr 1fr;

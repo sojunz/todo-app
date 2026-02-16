@@ -13,13 +13,10 @@ export default function LoginPage({ onLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ⭐ 실제 서버 로그인 대신 dummy token 저장
     localStorage.setItem("token", "dummy-token");
 
-    // ⭐ App.jsx에게 로그인 성공 알림
     onLogin();
 
-    // ⭐ 로그인 후 이동
     navigate(from, { replace: true });
   };
 

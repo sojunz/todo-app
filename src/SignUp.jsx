@@ -10,13 +10,10 @@ export default function SignUp({ onLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 회원가입 성공 → token 저장
     localStorage.setItem("token", "dummy-token");
 
-    // App.jsx에게 로그인 상태 업데이트 요청
     onLogin();
 
-    // 홈으로 이동
     navigate("/", { replace: true });
   };
 

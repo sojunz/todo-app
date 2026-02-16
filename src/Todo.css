@@ -1,4 +1,4 @@
-/* 전체 레이아웃 */
+
 .todo-layout {
   max-width: 720px;
   margin: 0 auto;
@@ -9,7 +9,6 @@
   color: black;
 }
 
-/* 이미지 */
 .todo-image {
   display: block;
   margin: 2rem auto 1rem auto;
@@ -19,14 +18,12 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* 제목 */
 h1 {
   font-size: 2rem;
   color: palevioletred;
   margin-bottom: 1.5rem;
 }
 
-/* 입력창 */
 form {
   display: flex;
   justify-content: center;
@@ -45,7 +42,7 @@ input {
   font-family: "Nanum Pen Script", cursive;
 }
 
-/* 버튼 */
+
 button {
   background-color: #fff;
   color: palevioletred;
