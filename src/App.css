@@ -1,0 +1,263 @@
+/* ------------------------------ */
+/* 0) 전체 레이아웃 안정화        */
+/* ------------------------------ */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px;     /* header 높이 보정 */
+  padding-bottom: 80px;  /* footer 높이 보정 */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Nanum Pen Script", cursive;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------------ */
+/* 1) Navigation (맨 위 고정)     */
+/* ------------------------------ */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 1000;
+  padding: 6px 0;
+}
+
+/* ------------------------------ */
+/* 2) Footer (맨 아래 고정)       */
+/* ------------------------------ */
+footer.footer-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: none;
+  border-top: 1px solid black;
+  padding: 16px 0;
+  text-align: center;
+  z-index: 1000;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.foot-icon {
+  height: 80px;
+  margin: 0;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  color: palevioletred;
+  font-family: "Nanum Pen Script", cursive;
+}
+
+/* ------------------------------ */
+/* 3) HomePage                    */
+/* ------------------------------ */
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.intro-block {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: none;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.intro-block p {
+  margin-bottom: 16px;
+  color: #4b2e2e;
+  font-weight: 500;
+}
+
+/* ------------------------------ */
+/* 4) Auth Pages (Login & SignUp) */
+/* ------------------------------ */
+.auth-page {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 32px;
+  border-radius: 18px;
+  background: #fffef9;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.auth-page h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: olive;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.auth-page form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 28px;
+  background: #fffaf4;
+  border-radius: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-group.half {
+  flex: 1;
+  min-width: 0;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-button {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.form-button button {
+  max-width: 140px;
+  width: 100%;
+  padding: 12px 16px;
+  background: olive;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.form-button button:hover {
+  background: #556b2f;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------ */
+/* 5) About Page                  */
+/* ------------------------------ */
+.about-page {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 28px;
+  background: none;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  line-height: 1.6;
+}
+
+.about-page h2 {
+  text-align: center;
+  color: #4b2e2e;
+  margin-bottom: 20px;
+}
+
+.about-page p {
+  margin-bottom: 16px;
+  color: #333;
+}
+
+/* ------------------------------ */
+/* 6) 공통 페이지 박스            */
+/* ------------------------------ */
+.page-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #fffef9;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.page-container h2 {
+  text-align: center;
+  color: olive;
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+.section-box {
+  background: #fffaf4;
+  padding: 24px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.section-box label {
+  display: block;
+  font-weight: bold;
+  color: #4b2e2e;
+  margin-bottom: 8px;
+}
+
+.section-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.page-button {
+  display: block;
+  max-width: 160px;
+  width: 100%;
+  margin: 20px auto 0;
+  padding: 12px 16px;
+  background: olive;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.page-button:hover {
+  background: #556b2f;
+  transform: translateY(-2px);
+}
+
+.settings-image {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+header nav a {
+  font-family: "Nanum Pen Script", cursive;
+}
