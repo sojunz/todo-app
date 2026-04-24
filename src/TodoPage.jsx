@@ -10,7 +10,7 @@ export default function TodoPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/api/todos")
+    fetch("https://todo-app-sr8h.onrender.com/api/todos")
       .then(res => res.json())
       .then(data => {
         setTodos(data);
