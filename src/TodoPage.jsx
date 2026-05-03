@@ -43,7 +43,6 @@ export default function TodoPage() {
     setTodos(todos.filter(todo => todo._id !== id));
   };
 
-  
   const clearAll = async () => {
     await fetch("https://todo-app-1-6ri0.onrender.com/api/todos", { method: "DELETE" });
     setTodos([]);
@@ -51,29 +50,24 @@ export default function TodoPage() {
 
   const saveTodos = () => {
     const saved = JSON.parse(localStorage.getItem("savedTodos")) || [];
-
     const newList = todos.map(todo => ({
       text: todo.text,
       savedAt: new Date().toISOString()
     }));
-
     saved.push(newList);
     localStorage.setItem("savedTodos", JSON.stringify(saved));
-
-    navigate("/save"); // TodoPage는 그대로 유지
+    navigate("/save");
   };
 
   return (
     <main className="todo-layout">
-      <img src="/Home.jpg" alt="todo" className="todo-image" />
       <h1>My Haru</h1>
-
+      <p className="todo-subtitle">What do you want to get done today?</p>
       {loading ? (
-        <p style={{ textAlign: "center" }}>Loading your todos...</p>
+        <p style={{ color: "#aaa" }}>Loading your todos...</p>
       ) : (
         <>
           <TodoForm onAdd={addTodo} />
-
           <ul className="todo-list">
             {todos.map(todo => (
               <TodoItem
@@ -84,11 +78,8 @@ export default function TodoPage() {
               />
             ))}
           </ul>
-
           <div className="todo-actions">
-            <button onClick={saveTodos} disabled={todos.length === 0}>
-              Save
-            </button>
+            <button onClick={saveTodos} disabled={todos.length === 0}>Save</button>
             <button onClick={clearAll}>Clear All</button>
           </div>
         </>

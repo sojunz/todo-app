@@ -4,12 +4,12 @@ export default function TodoItem({ todo, onToggle, onDelete }) {
   return (
     <li>
       <span
-        style={{ textDecoration: todo.done ? "line-through" : "none" }}
+        className={todo.done ? "done" : ""}
         onClick={() => onToggle(todo._id, !todo.done)}
       >
         {todo.text}
       </span>
-      <button onClick={() => onDelete(todo._id)}>Delete</button>
+      <button className="delete-btn" onClick={() => onDelete(todo._id)}>✕</button>
     </li>
   );
 }

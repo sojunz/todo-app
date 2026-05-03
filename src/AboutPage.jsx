@@ -1,20 +1,28 @@
-export default function About() {
+export default function AboutPage() {
   return (
-    <section className="about-page">
-      <h2>About</h2>
-      <p>
-        To‑do lists are for everyone—students, professionals, and creators. 
-        They help us capture tasks, organize life, and turn small steps into progress.
+    <div style={{ maxWidth: "500px", margin: "0 auto", padding: "3rem 1rem" }}>
+      <p style={{ fontSize: "0.75rem", color: "#aaa", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.5rem" }}>
+        About
       </p>
-      <p>
-        This website follows that tradition, but with a unique touch: 
-        it speaks especially to learners and makers who blend productivity with creativity.
+      <h2 style={{ fontSize: "2rem", fontWeight: "700", color: "#111", marginBottom: "2rem" }}>
+        What is HARU?
+      </h2>
+      <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.9", marginBottom: "1.2rem" }}>
+        HARU is a simple todo app built to help you stay focused and organized — one task at a time.
       </p>
-      <p>
-        Here, tasks are not just items to check off—they become part of a journey of growth, 
-        a quiet rhythm of learning, building, and handmade warmth.
+      <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.9", marginBottom: "1.2rem" }}>
+        It was built as a learning project while studying full-stack development with React, Node.js, and MongoDB.
       </p>
-      <img src="/About.jpg" alt="About" className="settings-image"  />
-      </section>
+      <div style={{
+        background: "#f9f9f9",
+        borderRadius: "16px",
+        padding: "1.2rem 1.5rem",
+        marginTop: "2rem"
+      }}>
+        <p style={{ fontSize: "0.85rem", color: "#888", lineHeight: "1.8", margin: 0 }}>
+          🛠 Built with React, Node.js, Express, MongoDB
+        </p>
+      </div>
+    </div>
   );
 }

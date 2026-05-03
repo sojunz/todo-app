@@ -19,7 +19,7 @@ export default function TodoForm({ onAdd }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button type="submit">Add</button>
+      <button type="submit" className="add-btn">Add</button>
     </form>
   );
 }

@@ -20,6 +20,7 @@ export default function SavePage() {
   return (
     <div className="save-wrapper">
       <h1 className="save-title">Saved Lists</h1>
+      <p className="save-subtitle">Your previously saved todo lists</p>
 
       <div className="save-grid">
         {savedLists.map((list, index) => (

@@ -1,86 +1,111 @@
 .save-wrapper {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 3rem 1rem;
   text-align: center;
-  font-family: "Nanum Pen Script", cursive;
-  background-color: #fffdf9;
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
 }
 
 .save-title {
-  font-size: 2.4rem;
-  margin-bottom: 30px;
-  color: palevioletred;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.save-subtitle {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 2.5rem;
 }
 
 .save-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 22px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 3rem;
 }
 
 .card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 1.2rem;
   min-height: 180px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: left;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  font-size: 1rem;
-  margin-bottom: 10px;
+  align-items: center;
+  margin-bottom: 0.8rem;
 }
 
 .card-number {
-  font-weight: bold;
-  color: olivedrab;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #111;
 }
 
 .card-date {
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 0.75rem;
+  color: #aaa;
 }
 
 .card-items {
   list-style: none;
   padding: 0;
-  margin: 0 0 12px 0;
-  text-align: left;
+  margin: 0 0 1rem 0;
+  flex: 1;
 }
 
 .card-items li {
-  margin: 4px 0;
-  font-size: 1.1rem;
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #444;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .card-delete {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  background: none;
+  border: 1px solid #e5e5e5;
+  color: #999;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.8rem;
   align-self: flex-end;
+  transition: all 0.2s;
 }
 
 .card-delete:hover {
-  background-color: #d90000;
+  border-color: #111;
+  color: #111;
 }
 
 .save-back {
-  background-color: palevioletred;
-  color: white;
+  background-color: #111;
+  color: #fff;
   border: none;
-  padding: 12px 22px;
-  border-radius: 6px;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  transition: background 0.2s;
+}
+
+.save-back:hover {
+  background-color: #333;
 }

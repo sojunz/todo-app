@@ -1,108 +1,125 @@
-
 .todo-layout {
-  max-width: 720px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 3rem 1rem;
   text-align: center;
-  font-family: "Nanum Pen Script", cursive;
-  background-color: #fdf6f0;
-  color: black;
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+  color: #111;
 }
 
-.todo-image {
-  display: block;
-  margin: 2rem auto 1rem auto;
-  max-width: 280px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+.todo-layout h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.5rem;
 }
 
-h1 {
-  font-size: 2rem;
-  color: palevioletred;
-  margin-bottom: 1.5rem;
+.todo-subtitle {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 2rem;
 }
 
 form {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 input {
   width: 100%;
-  max-width: 520px;
-  padding: 0.9rem;
-  font-size: 1.1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: "Nanum Pen Script", cursive;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  font-family: "Inter", sans-serif;
+  outline: none;
 }
 
+input:focus {
+  border-color: #111;
+}
 
-button {
-  background-color: #fff;
-  color: palevioletred;
+.add-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #111;
+  color: #fff;
   border: none;
-  padding: 0.75rem 1.2rem;
-  border-radius: 6px;
+  border-radius: 9999px;
   cursor: pointer;
-  font-family: "Nanum Pen Script", cursive;
-  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-button:hover {
-  background-color: #fff
+.add-btn:hover {
+  background-color: #333;
 }
 
-/* 리스트 */
 .todo-list {
   list-style: none;
   padding: 0;
+  margin: 0 auto 2rem;
   max-width: 500px;
-  margin: 0 auto;
 }
 
 .todo-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
-  padding: 0.75rem;
+  background: #f9f9f9;
+  padding: 0.85rem 1.2rem;
   margin-bottom: 0.5rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 12px;
 }
 
 .todo-list li span {
   cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
 }
 
-.todo-list li span:hover {
-  text-decoration: underline;
+.todo-list li span.done {
+  text-decoration: line-through;
+  color: #aaa;
 }
 
-/* Save / Clear All 버튼 */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.delete-btn:hover {
+  color: #999;
+}
+
 .todo-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .todo-actions button {
-  padding: 0.75rem 1.2rem;
+  padding: 0.6rem 1.5rem;
   background-color: #fff;
-  border: none;
-  border-radius: 6px;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
   cursor: pointer;
-  font-family: "Nanum Pen Script", cursive;
-  font-weight: bold;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #555;
 }
 
 .todo-actions button:hover {
-  background-color: #ddd;
+  border-color: #111;
+  color: #111;
 }

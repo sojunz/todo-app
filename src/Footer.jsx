@@ -1,13 +1,15 @@
-import "./App.css";
-
 export default function Footer() {
   return (
-    <footer className="footer-bar">
-      <div className="footer-inner">
-        <img src="/Logo.png" alt="footlogo" className="foot-icon" />
-        <p className="footer-text">© 2026 HARU — Made with warmth</p>
-      </div>
+    <footer style={{
+      width: "100%",
+      textAlign: "center",
+      padding: "1.5rem 0",
+      borderTop: "1px solid #f0f0f0",
+      fontSize: "0.8rem",
+      color: "#aaa",
+      fontFamily: "Inter, sans-serif"
+    }}>
+      © 2026 HARU
     </footer>
   );
 }
-
