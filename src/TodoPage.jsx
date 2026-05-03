@@ -10,7 +10,7 @@ export default function TodoPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://todo-app-sr8h.onrender.com/api/todos")
+    fetch("https://todo-app-1-6ri0.onrender.com/api/todos")
       .then(res => res.json())
       .then(data => {
         setTodos(data);
@@ -19,7 +19,7 @@ export default function TodoPage() {
   }, []);
 
   const addTodo = async (text) => {
-    const res = await fetch("https://todo-app-sr8h.onrender.com/api/todos", {
+    const res = await fetch("https://todo-app-1-6ri0.onrender.com/api/todos", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text })
@@ -29,7 +29,7 @@ export default function TodoPage() {
   };
 
   const toggleTodo = async (id, done) => {
-    const res = await fetch(`https://todo-app-sr8h.onrender.com/api/todos/${id}`, {
+    const res = await fetch(`https://todo-app-1-6ri0.onrender.com/api/todos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ done })
@@ -39,13 +39,13 @@ export default function TodoPage() {
   };
 
   const deleteTodo = async (id) => {
-    await fetch(`https://todo-app-sr8h.onrender.com/api/todos/${id}`, { method: "DELETE" });
+    await fetch(`https://todo-app-1-6ri0.onrender.com/api/todos/${id}`, { method: "DELETE" });
     setTodos(todos.filter(todo => todo._id !== id));
   };
 
   
   const clearAll = async () => {
-    await fetch("https://todo-app-sr8h.onrender.com/api/todos", { method: "DELETE" });
+    await fetch("https://todo-app-1-6ri0.onrender.com/api/todos", { method: "DELETE" });
     setTodos([]);
   };
 
